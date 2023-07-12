@@ -32,6 +32,7 @@
 
 import Foundation
 import Combine
+import NetworkKit
 
 class MovieListViewModel: ObservableObject {
   @Published

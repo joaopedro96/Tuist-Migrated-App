@@ -19,6 +19,11 @@ let projectConfigurations: [Configuration] = [
 let projectSettings: Settings = .settings(configurations: projectConfigurations,
                                           defaultSettings: .none)
 
+// MARK: - DEPENDENCIES
+
+let networkProject = TargetDependency.project(target: "NetworkKit",
+                                              path: .relativeToManifest("NetworkKit"))
+
 // MARK: - TARGETS
 
 let movieInfoTarget = Target(name: "MovieInfo",
@@ -28,7 +33,7 @@ let movieInfoTarget = Target(name: "MovieInfo",
                              infoPlist: "MovieInfo/Info.plist",
                              sources: ["MovieInfo/Source/**"],
                              resources: ["MovieInfo/Resources/**"],
-                             dependencies: [],
+                             dependencies: [networkProject],
                              settings: targetSettings)
 
 // MARK: - PROJECT
@@ -36,6 +41,4 @@ let movieInfoTarget = Target(name: "MovieInfo",
 let project = Project(name: "MovieInfo",
                       organizationName: "joaoribeiroteam",
                       settings: projectSettings,
-                      targets: [
-                        movieInfoTarget
-                      ])
+                      targets: [movieInfoTarget])
