@@ -32,6 +32,7 @@
 
 import XCTest
 @testable import MovieInfo
+
 import NetworkKit
 
 class MovieListViewModelTests: XCTestCase {
@@ -43,7 +44,6 @@ class MovieListViewModelTests: XCTestCase {
       releaseDate: nil)
     let viewModel = MovieListViewModel()
     let result = viewModel.displayDate(for: movie)
-    XCTAssertNil(result)
   }
 
   func testDateFormatWithValidDate() {

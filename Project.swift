@@ -36,9 +36,20 @@ let movieInfoTarget = Target(name: "MovieInfo",
                              dependencies: [networkProject],
                              settings: targetSettings)
 
+let testsTarget = Target(name: "MovieInfoTests",
+                         platform: .iOS,
+                         product: .unitTests,
+                         bundleId: "co.tests.joaoribeiro",
+                         infoPlist: "MovieInfoTests/Resources/Info.plist",
+                         sources: ["MovieInfoTests/Source/**"],
+                         dependencies: [.target(name: "MovieInfo")])
+
 // MARK: - PROJECT
 
 let project = Project(name: "MovieInfo",
                       organizationName: "joaoribeiroteam",
                       settings: projectSettings,
-                      targets: [movieInfoTarget])
+                      targets: [
+                        movieInfoTarget,
+                        testsTarget
+                      ])
