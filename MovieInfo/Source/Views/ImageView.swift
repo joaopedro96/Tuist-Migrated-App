@@ -34,20 +34,24 @@ import SwiftUI
 import FetchImage
 
 struct ImageView: View {
-  let url: URL
-
-  @StateObject private var image = FetchImage()
-
-  var body: some View {
-    ZStack {
-      Rectangle().fill(Color.gray)
-
-      image.view?
-        .resizable()
-        .aspectRatio(contentMode: .fit)
-        .clipped()
+    let url: URL
+    
+    private var image: FetchImage
+    
+    init(url: URL) {
+        self.url = url
+        image = FetchImage(url: url)
     }
-    .onAppear { image.load(url) }
-    .onDisappear { image.reset() }
-  }
+    
+    var body: some View {
+        ZStack {
+            Rectangle().fill(Color.gray)
+            
+            image.view?
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .clipped()
+        }
+        .onAppear { image.fetch() }
+    }
 }

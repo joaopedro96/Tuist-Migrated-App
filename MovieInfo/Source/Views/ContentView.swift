@@ -33,21 +33,25 @@
 import SwiftUI
 
 struct ContentView: View {
-  @ObservedObject
-  var viewModel = MovieListViewModel()
-
-  var body: some View {
-    NavigationView {
-      List(viewModel.movieList, id: \.id) { movie in
-        Text("\(movie.title)")
-      }
-      .navigationTitle("Movie Info")
+    @ObservedObject
+    var viewModel = MovieListViewModel()
+    
+    var body: some View {
+        NavigationView {
+            List(viewModel.movieList, id: \.id) { movie in
+                Text("\(movie.title)")
+                if let url = movie.posterURL {
+                    ImageView(url: url)
+                        .frame(width: 92, height: 138)
+                }
+            }
+            .navigationTitle("Movie Info")
+        }
     }
-  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    ContentView()
-  }
+    static var previews: some View {
+        ContentView()
+    }
 }

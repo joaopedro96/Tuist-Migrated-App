@@ -44,6 +44,7 @@ class MovieListViewModelTests: XCTestCase {
       releaseDate: nil)
     let viewModel = MovieListViewModel()
     let result = viewModel.displayDate(for: movie)
+    XCTAssertNil(result)
   }
 
   func testDateFormatWithValidDate() {

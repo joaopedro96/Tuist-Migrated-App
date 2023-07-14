@@ -24,6 +24,13 @@ let projectSettings: Settings = .settings(configurations: projectConfigurations,
 let networkProject = TargetDependency.project(target: "NetworkKit",
                                               path: .relativeToManifest("NetworkKit"))
 
+// MARK: - PACKAGES
+
+let fetchImagePackage = Package.remote(url: "https://github.com/davidskeck/FetchImage.git",
+                                       requirement: .upToNextMajor(from: Version(0, 1, 0)))
+
+let packages: [Package] = [fetchImagePackage]
+
 // MARK: - TARGETS
 
 let movieInfoTarget = Target(name: "MovieInfo",
@@ -33,7 +40,10 @@ let movieInfoTarget = Target(name: "MovieInfo",
                              infoPlist: "MovieInfo/Info.plist",
                              sources: ["MovieInfo/Source/**"],
                              resources: ["MovieInfo/Resources/**"],
-                             dependencies: [networkProject],
+                             dependencies: [
+                                networkProject,
+                                .package(product: "FetchImage")
+                             ],
                              settings: targetSettings)
 
 let testsTarget = Target(name: "MovieInfoTests",
@@ -48,6 +58,7 @@ let testsTarget = Target(name: "MovieInfoTests",
 
 let project = Project(name: "MovieInfo",
                       organizationName: "joaoribeiroteam",
+                      packages: packages,
                       settings: projectSettings,
                       targets: [
                         movieInfoTarget,

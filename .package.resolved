@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "fetchimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/davidskeck/FetchImage.git",
+      "state" : {
+        "revision" : "23e1e271bd21dcbb8306a86a4bdc22a68cb04a96",
+        "version" : "0.1.0"
+      }
+    },
+    {
+      "identity" : "nuke",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kean/Nuke.git",
+      "state" : {
+        "revision" : "6001489d22e5f41a4956c1b6cd4cf7cbe8f44dff",
+        "version" : "8.4.1"
+      }
+    }
+  ],
+  "version" : 2
+}
