@@ -32,6 +32,14 @@
 
 import SwiftUI
 import FetchImage
+import Alamofire
+
+class dewefef: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        request("")
+    }
+}
 
 struct ImageView: View {
     let url: URL

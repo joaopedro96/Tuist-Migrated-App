@@ -4,8 +4,8 @@ import ProjectDescription
 // MARK: - SETTINGS
 
 let targetConfigurations: [Configuration] = [
-    .debug(name: .debug, xcconfig: Path("config/MovieInfoTarget.xcconfig")),
-    .release(name: .release, xcconfig: Path("config/MovieInfoTarget.xcconfig"))
+    .debug(name: .debug, xcconfig: Path("config/MovieInfoTargetDebug.xcconfig")),
+    .release(name: .release, xcconfig: Path("config/MovieInfoTargetRelease.xcconfig"))
 ]
 
 let targetSettings: Settings = .settings(configurations: targetConfigurations,

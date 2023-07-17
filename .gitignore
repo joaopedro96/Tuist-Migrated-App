@@ -4,6 +4,9 @@
 .AppleDouble
 .LSOverride
 
+#Pods
+Pods/
+
 # Icon must end with two
 Icon
 
