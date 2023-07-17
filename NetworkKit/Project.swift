@@ -4,8 +4,8 @@ import ProjectDescription
 // MARK: - SETTINGS
 
 let projectConfigurations: [Configuration] = [
-    .debug(name: .debug, xcconfig: Path("config/NetworkKitProject.xcconfig")),
-    .release(name: .release, xcconfig: Path("config/NetworkKitProject.xcconfig"))
+    .debug(name: .debug, xcconfig: Path("config/NetworkKitProjectDebug.xcconfig")),
+    .release(name: .release, xcconfig: Path("config/NetworkKitProjectRelease.xcconfig"))
 ]
 
 let projectSettings: Settings = .settings(configurations: projectConfigurations,

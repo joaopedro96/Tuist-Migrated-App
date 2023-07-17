@@ -32,6 +32,7 @@
 
 import Foundation
 import Combine
+import Alamofire
 
 public struct Network {
   private let apiKey = "a0a8cdcaf9e34efd8a0741d343f255e1"
