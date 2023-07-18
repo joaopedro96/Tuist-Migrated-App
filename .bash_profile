@@ -1,0 +1,1 @@
+alias make_project="tuist generate; pod install"
