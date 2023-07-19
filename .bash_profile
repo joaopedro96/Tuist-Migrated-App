@@ -1,1 +1,1 @@
-alias make_project="tuist generate; pod install"
+alias make_project="tuist generate -n true; pod install; open MovieInfo.xcworkspace"
